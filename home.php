@@ -1,0 +1,1 @@
+<h1>Fuzzy Mamdani Mean of Maxima</h1>
