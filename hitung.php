@@ -114,6 +114,7 @@ $fuzzy->hitung_rank();
                 <th>Nama</th>
                 <th>Total</th>
                 <th><?= $KRITERIA[$TARGET]->nama_kriteria ?></th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <?php
@@ -127,6 +128,8 @@ $fuzzy->hitung_rank();
                 <td><?= $ALTERNATIF[$key] ?></td>
                 <td><?= round($total[$key], 3) ?></td>
                 <td><?= $fuzzy->get_klasifikasi($total[$key]) ?></td>
+                <td><a class="btn btn-xs btn-primary" href="?m=detail&ID=<?= $row->kode_alternatif ?>"><span class="glyphicon glyphicon-zoom-in"></span></a>
+                </td>
             </tr>
         <?php endforeach ?>
     </table>

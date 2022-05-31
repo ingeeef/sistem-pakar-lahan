@@ -30,19 +30,19 @@ include 'functions.php';
                 <a class="navbar-brand" href="?">FIS Mamdani</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <?php if (empty($_SESSION['login'])) : ?>
-                        <li><a href="?m=hitung"><span class="glyphicon glyphicon-calendar"></span> Perhitungan</a></li>
+                <ul class="nav navbar-nav"> 
+                <?php if (empty($_SESSION['login'])) : ?>
+                        <li><a href="?m=hitung">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="glyphicon glyphicon-calendar"></span> Perhitungan</a></li>
                         <li><a href="?m=metode"><span class="glyphicon glyphicon-folder-open"></span> &nbsp;Metode</a></li>
                         <li><a href="?m=login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     <?php else : ?>
-                        <li><a href="?m=kriteria"><span class="glyphicon glyphicon-th-large"></span> Kriteria</a></li>
+                        <li><a href="?m=kriteria">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-th-large"></span> Kriteria</a></li>
                         <li><a href="?m=alternatif"><span class="glyphicon glyphicon-user"></span> Alternatif</a></li>
                         <li><a href="?m=aturan"><span class="glyphicon glyphicon-th"></span> Aturan</a></li>
                         <li><a href="?m=hitung"><span class="glyphicon glyphicon-calendar"></span> Perhitungan</a></li>
                         <li><a href="?m=password"><span class="glyphicon glyphicon-lock"></span> Password</a></li>
                         <li><a href="aksi.php?act=logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-                    <?php endif ?>
+                        <?php endif ?>
                 </ul>
                 <div class="navbar-text"></div>
             </div>
