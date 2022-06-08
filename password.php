@@ -7,15 +7,15 @@
         <form method="post" action="?m=password&act=password_ubah">
             <div class="form-group">
                 <label>Password Lama <span class="text-danger">*</span></label>
-                <input class="form-control" type="password" name="pass1" />
+                <input class="form-control" type="password" name="password1" />
             </div>
             <div class="form-group">
                 <label>Password Baru <span class="text-danger">*</span></label>
-                <input class="form-control" type="password" name="pass2" />
+                <input class="form-control" type="password" name="password2" />
             </div>
             <div class="form-group">
                 <label>Konfirmasi Password Baru <span class="text-danger">*</span></label>
-                <input class="form-control" type="password" name="pass3" />
+                <input class="form-control" type="password" name="password3" />
             </div>
             <div class="form-group">
                 <button class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Simpan</button>

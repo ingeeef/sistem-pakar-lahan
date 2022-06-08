@@ -1,5 +1,5 @@
 <div class="page-header">
-    <h1>Alternatif</h1>
+    <h1>Data</h1>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -24,7 +24,7 @@
             <tr>
                 <th>No</th>
                 <th>Kode</th>
-                <th>Nama Alternatif</th>
+                <th>Nama</th>
                 <?php foreach ($KRITERIA as $key => $val) : if ($key == $TARGET) continue ?>
                     <th><?= $val->nama_kriteria ?></th>
                 <?php endforeach ?>

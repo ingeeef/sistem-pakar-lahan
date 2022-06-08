@@ -2,31 +2,31 @@
 require_once 'functions.php';
 
 if ($mod == 'login') {
-    $user = esc_field($_POST['user']);
-    $pass = esc_field($_POST['pass']);
+    $username = esc_field($_POST['username']);
+    $password = esc_field($_POST['password']);
 
-    $row = $db->get_row("SELECT * FROM tb_admin WHERE user='$user' AND pass='$pass'");
+    $row = $db->get_row("SELECT * FROM tb_admin WHERE username='$username' AND password='$password'");
     if ($row) {
-        $_SESSION['login'] = $row->user;
+        $_SESSION['login'] = $row->username;
         redirect_js("index.php");
     } else {
-        print_msg("Salah kombinasi username dan password.");
+        print_msg("Salah kombinasi usernamename dan password.");
     }
 } else if ($mod == 'password') {
-    $pass1 = $_POST['pass1'];
-    $pass2 = $_POST['pass2'];
-    $pass3 = $_POST['pass3'];
+    $password1 = $_POST['password1'];
+    $password2 = $_POST['password2'];
+    $password3 = $_POST['password3'];
 
-    $row = $db->get_row("SELECT * FROM tb_admin WHERE user='$_SESSION[login]' AND pass='$pass1'");
+    $row = $db->get_row("SELECT * FROM tb_admin WHERE username='$_SESSION[login]' AND password='$password1'");
 
-    if ($pass1 == '' || $pass2 == '' || $pass3 == '')
+    if ($password1 == '' || $password2 == '' || $password3 == '')
         print_msg('Field bertanda * harus diisi.');
     elseif (!$row)
-        print_msg('Password lama salah.');
-    elseif ($pass2 != $pass3)
-        print_msg('Password baru dan konfirmasi password baru tidak sama.');
+        print_msg('password lama salah.');
+    elseif ($password2 != $password3)
+        print_msg('password baru dan konfirmasi password baru tidak sama.');
     else {
-        $db->query("UPDATE tb_admin SET pass='$pass2' WHERE user='$_SESSION[login]'");
+        $db->query("UPDATE tb_admin SET password='$password2' WHERE username='$_SESSION[login]'");
         print_msg('Password berhasil diubah.', 'success');
     }
 } elseif ($act == 'logout') {
@@ -50,7 +50,7 @@ elseif ($mod == 'alternatif_tambah') {
             $val *= 1;
             $db->query("INSERT INTO tb_rel_alternatif(kode_alternatif, kode_kriteria, nilai) VALUES ('$kode_alternatif', '$key', $val)");
         }
-        redirect_js("index.php?m=alternatif");
+        redirect_js("admin.php?m=alternatif");
     }
 } elseif ($mod == 'alternatif_ubah') {
     $nama_alternatif = $_POST['nama_alternatif'];
@@ -62,12 +62,12 @@ elseif ($mod == 'alternatif_tambah') {
         $db->query("UPDATE tb_alternatif SET nama_alternatif='$nama_alternatif' WHERE kode_alternatif='$_GET[ID]'");
         foreach ($nilai as $key => $val)
             $db->query("UPDATE tb_rel_alternatif SET nilai='$val' WHERE ID='$key'");
-        redirect_js("index.php?m=alternatif");
+        redirect_js("admin.php?m=alternatif");
     }
 } elseif ($act == 'alternatif_hapus') {
     $db->query("DELETE FROM tb_alternatif WHERE kode_alternatif='$_GET[ID]'");
     $db->query("DELETE FROM tb_rel_alternatif WHERE kode_alternatif='$_GET[ID]'");
-    header("location:index.php?m=alternatif");
+    header("location:admin.php?m=alternatif");
 }
 
 /** kriteria */
@@ -88,7 +88,7 @@ elseif ($mod == 'kriteria_tambah') {
     else {
         $db->query("INSERT INTO tb_kriteria (kode_kriteria, nama_kriteria, batas_bawah, batas_atas) VALUES ('$kode_kriteria', '$nama_kriteria', '$batas_bawah', '$batas_atas')");
         $db->query("INSERT INTO tb_rel_alternatif (kode_alternatif, kode_kriteria) SELECT kode_alternatif, '$kode_kriteria' FROM tb_alternatif");
-        redirect_js("index.php?m=kriteria");
+        redirect_js("admin.php?m=kriteria");
     }
 } else if ($mod == 'kriteria_ubah') {
     $nama_kriteria = $_POST['nama_kriteria'];
@@ -105,13 +105,13 @@ elseif ($mod == 'kriteria_tambah') {
         $db->query("UPDATE tb_kriteria 
             SET nama_kriteria='$nama_kriteria', batas_bawah='$batas_bawah', batas_atas='$batas_atas'
             WHERE kode_kriteria='$_GET[ID]'");
-        redirect_js("index.php?m=kriteria");
+        redirect_js("admin.php?m=kriteria");
     }
 } else if ($act == 'kriteria_hapus') {
     $db->query("DELETE FROM tb_kriteria WHERE kode_kriteria='$_GET[ID]'");
     $db->query("DELETE FROM tb_rel_alternatif WHERE kode_kriteria='$_GET[ID]'");
     $db->query("DELETE FROM tb_aturan WHERE kode_kriteria='$_GET[ID]'");
-    header("location:index.php?m=kriteria");
+    header("location:admin.php?m=kriteria");
 }
 
 /** RELASI ALTERNATIF */
@@ -120,7 +120,7 @@ else if ($act == 'rel_alternatif_ubah') {
         $ID = str_replace('ID-', '', $key);
         $db->query("UPDATE tb_rel_alternatif SET nilai='$value' WHERE ID='$ID'");
     }
-    header("location:index.php?m=rel_alternatif");
+    header("location:admin.php?m=rel_alternatif");
 } else if ($mod == 'kriteria_himpunan') {
     if ($_POST['tambah_himpunan']) {
         $kode_himpunan = $_POST['kode_himpunan'];
@@ -146,8 +146,8 @@ else if ($act == 'rel_alternatif_ubah') {
     }
 } else if ($mod == 'himpunan_hapus') {
     $db->query("DELETE FROM tb_himpunan WHERE kode_himpunan='$_GET[ID]'");
-    header("location:index.php?m=kriteria_himpunan&ID=$_GET[kode_kriteria]");
+    header("location:admin.php?m=kriteria_himpunan&ID=$_GET[kode_kriteria]");
 } else if ($act == 'aturan_hapus') {
     $db->query("DELETE FROM tb_aturan WHERE no_aturan='$_GET[ID]'");
-    header("location:index.php?m=aturan");
+    header("location:admin.php?m=aturan");
 }
