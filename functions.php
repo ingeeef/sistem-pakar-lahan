@@ -7,6 +7,7 @@ include 'includes/db.php';
 $db = new DB($config['server'], $config['username'], $config['password'], $config['database_name']);
 include 'includes/general.php';
 include 'includes/fuzzy.php';
+$terhubung = true;
 
 function _post($key, $val = null)
 {

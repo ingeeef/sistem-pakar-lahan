@@ -31,6 +31,10 @@ if ($mod == 'login') {
     }
 } elseif ($act == 'logout') {
     unset($_SESSION['login']);
+    $helper = array_keys($_SESSION);
+    foreach ($helper as $key) {
+        unset($_SESSION[$key]);
+    }
     header("location:index.php?m=login");
 }
 

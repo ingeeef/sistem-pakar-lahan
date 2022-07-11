@@ -1,6 +1,3 @@
-<?php
-include 'functions.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,13 +15,22 @@ include 'functions.php';
 </head>
 
 <body>
-<?php 
-	session_start();
-	if($_SESSION['status']!="login"){
-		header("location:../index.php?pesan=belum_login");
-	}
-	?>
+    <?php
+    session_start();
+    // var_dump($_SESSION['jenis']);
+    // die;
+    $mod = isset($_GET['m']) ? $_GET['m'] : '';
+    if (isset($_SESSION['jenis'])) {
+        include 'functions.php';
+    } else {
+        include 'includes/db.php';
+    }
+    $koneksi = new DB('localhost', 'root', '', 'mamdani_mom_base');
 
+    if ($_SESSION['status'] != "login") {
+        header("location:../index.php?pesan=belum_login");
+    }
+    ?>
 
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
@@ -38,15 +44,22 @@ include 'functions.php';
                 <a class="navbar-brand" href="?">SILABU</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav"> 
-                        <li><a href="?m=kriteria">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-th-large"></span> Kriteria</a></li>
-                        <li><a href="?m=aturan"><span class="glyphicon glyphicon-th"></span> Aturan</a></li>
+                <ul class="nav navbar-nav" style="float: right;">
+                    <li><a href="?m=jenis"><span class="glyphicon glyphicon-leaf"></span> Jenis</a></li>
+                    <?php if (isset($terhubung)) { ?>
+                        <li><a href="?m=kriteria"><span class="glyphicon glyphicon-th-large"></span> Kriteria</a></li>
+                        <li><a href="?m=aturan"><span class="glyphicon glyphicon-th"></span> Data</a></li>
                         <li><a href="?m=alternatif"><span class="glyphicon glyphicon-user"></span> Data</a></li>
                         <li><a href="?m=detaildata"><span class="glyphicon glyphicon-th"></span> Data Aturan</a></li>
                         <li><a href="?m=hitung"><span class="glyphicon glyphicon-calendar"></span> Perhitungan</a></li>
-             <!--           <li><a href="?m=password"><span class="glyphicon glyphicon-lock"></span> Password</a></li> -->
+                    <?php } ?>
+                    <!--           <li><a href="?m=password"><span class="glyphicon glyphicon-lock"></span> Password</a></li> -->
+                    <?php if (isset($terhubung)) { ?>
                         <li><a href="aksi.php?act=logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-                       
+                    <?php } else { ?>
+                        <li><a href="admin.php?logout=logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+
+                    <?php } ?>
                 </ul>
                 <div class="navbar-text"></div>
             </div>
@@ -73,3 +86,13 @@ include 'functions.php';
 </body>
 
 </html>
+
+<?php
+if (isset($_GET['logout'])) {
+    $helper = array_keys($_SESSION);
+    foreach ($helper as $key) {
+        unset($_SESSION[$key]);
+    }
+    header("location:index.php?m=login");
+}
+?>
