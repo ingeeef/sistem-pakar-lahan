@@ -49,11 +49,21 @@ elseif ($mod == 'alternatif_tambah') {
     elseif ($db->get_results("SELECT * FROM tb_alternatif WHERE kode_alternatif='$kode_alternatif'"))
         print_msg("Kode_alternatif sudah ada!");
     else {
-        $db->query("INSERT INTO tb_alternatif(kode_alternatif, nama_alternatif) VALUES ('$kode_alternatif', '$nama_alternatif')");
-        foreach ($nilai as $key => $val) {
-            $val *= 1;
-            $db->query("INSERT INTO tb_rel_alternatif(kode_alternatif, kode_kriteria, nilai) VALUES ('$kode_alternatif', '$key', $val)");
+        if ($koneksi) {
+            $jenis = $koneksi->query("SELECT * FROM tb_jenis");
+            while ($raw = $jenis->fetch_assoc()) {
+                $dbs = mysqli_connect('localhost', 'root', '', $raw['database']);
+                $dbs->query("INSERT INTO tb_alternatif(kode_alternatif, nama_alternatif) VALUES ('$kode_alternatif', '$nama_alternatif')");
+                foreach ($nilai as $key => $val) {
+                    $val *= 1;
+                    $dbs->query("INSERT INTO tb_rel_alternatif(kode_alternatif, kode_kriteria, nilai) VALUES ('$kode_alternatif', '$key', $val)");
+                }
+            }
+        } else {
+            echo "!oke";
         }
+
+
         redirect_js("admin.php?m=alternatif");
     }
 } elseif ($mod == 'alternatif_ubah') {
