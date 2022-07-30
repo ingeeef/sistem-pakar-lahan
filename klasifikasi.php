@@ -37,8 +37,8 @@ $fuzzy->hitung_rank();
                 <th>No</th>
                 <th>Kode</th>
                 <th>Nama</th>
-                <th>Kriteria</th>
-                <th>Hasil</th>
+                <th>Data Lahan</th>
+                <th>Kelas Kesesuaian</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -56,9 +56,6 @@ $fuzzy->hitung_rank();
                 <?= $row->nama_alternatif ?>
             </td>
             <td>
-                Defuzifikasi
-            </td>
-            <td>
                 <table class="table table-bordered table-hover table-stripped">
                     <tr>
                         <?php foreach ($KRITERIA as $key => $val) : if ($key == $TARGET) continue ?>
@@ -73,7 +70,16 @@ $fuzzy->hitung_rank();
                 </table>
             </td>
             <td>
-
+            <table class="table table-bordered table-hover table-stripped">
+                    <tr>
+                        <th>S1</th>
+                        <th>S2</th>
+                        <th>S3</th>
+                        <th>N</th>
+                    </tr>
+                </table>
+            </td>
+            <td>
                 <?php
                     if ($koneksi) {
                         $jenis = $koneksi->query("SELECT * FROM tb_jenis");
