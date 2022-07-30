@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Beranda - SILABU</title>
+        <title>Beranda - SITAPE</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -38,10 +38,10 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8 col-xxl-6">
                             <div class="text-center my-5">
-                                <h1 class="fw-bolder mb-3">SI LABU</h1><br>
-                                <p class="lead fw-normal text-muted mb-4">Sistem Pakar Analisis Kesesuaian Lahan Untuk Tanaman di desain untuk dapat membantu mempermudah petani dalam 
-                                mengetahui lahan yang sesuai pada jenis varietas tanaman tebu. Keluaran yang di rancang dari sistem pakar ini berupa perangkingan lahan tebu terbaik
-                                berdasarkan data data yang telah di inputkan oleh user.</p>
+                                <h1 class="fw-bolder mb-3">SI TAPE</h1><br>
+                                <p class="lead fw-normal text-muted mb-4">Sistem Pakar Analisis Kesesuaian Lahan Untuk Tanaman Perkebunan di desain untuk dapat membantu mempermudah dalam 
+                                menghitung lahan pada jenis tanaman perkebunan. Keluaran yang di rancang dari sistem pakar ini berupa perangkingan lahan perkebunan terbaik
+                                berdasarkan data data yang telah di inputkan oleh user. Dengan meminimalisir teknik budidaya yang diterapkan</p>
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                 <div class="container px-5 my-5">
                     <div class="text-center">
                         <h2 class="fw-bolder">Tim Pengembang</h2>
-                        <p class="lead fw-normal text-muted mb-5">Tim yang berkontribusi dalam pengembangan SI LABU</p>
+                        <p class="lead fw-normal text-muted mb-5">Tim yang berkontribusi dalam pengembangan SI TAPE</p>
                     </div>
                     <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
                         <div class="col mb-5 mb-5 mb-xl-0">
@@ -71,16 +71,9 @@
                         </div>
                         <div class="col mb-5 mb-5 mb-sm-0">
                             <div class="text-center">
-                                <img class="img-fluid rounded-circle mb-4 px-4" src="pakar.png" alt="..." />
-                                <h5 class="fw-bolder">Haryanto</h5>
-                                <div class="fst-italic text-muted">Pakar</div>
-                            </div>
-                        </div>
-                        <div class="col mb-5">
-                            <div class="text-center">
-                                <img class="img-fluid rounded-circle mb-4 px-4" src="pakar2.png" alt="..." />
-                                <h5 class="fw-bolder">Muhammad Afrianto</h5>
-                                <div class="fst-italic text-muted">Pegawai Pabrik Gula</div>
+                                <img class="img-fluid rounded-circle mb-4 px-4" src="pakar.jpg" alt="..." />
+                                <h5 class="fw-bolder">Ir. Abdul Madjid, MP</h5>
+                                <div class="fst-italic text-muted">Kepala Laboratorium Tanah Politeknik Negeri Jember</div>
                             </div>
                         </div>
                     </div>
@@ -97,7 +90,7 @@
                     </a>
                         <a class="link-light small" href="#!"></a>
                     </div>
-                    <div class="col-auto"><div class="small text-white-50">Copyright &copy; SILABU2022</div></div>
+                    <div class="col-auto"><div class="small text-white-50">Copyright &copy; SITAPE2022</div></div>
                 </div>
             </div>
         </footer>

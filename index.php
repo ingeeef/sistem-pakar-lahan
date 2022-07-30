@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Beranda - SILABU</title>
+        <title>Beranda - SITAPE</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -38,14 +38,14 @@
                     <div class="row gx-5 align-items-center justify-content-center">
                         <div class="col-lg-8 col-xl-7 col-xxl-6">
                             <div class="my-5 text-center text-xl-start">
-                                <h1 class="display-5 fw-bolder text-white mb-2">Sistem Informasi Kesesuaian Lahan Tanaman Tebu</h1>
-                                <p class="lead fw-normal text-white-50 mb-4">Sugarcane Land Suitability Information System</p>
+                                <h1 class="display-5 fw-bolder text-white mb-2">Sistem Informasi Kesesuaian Lahan Tanaman Perkebunan</h1>
+                                <p class="lead fw-normal text-white-50 mb-4">Information System of Plantation Land Suitability</p>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
                                    <!-- <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a> -->
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="tebu1.jpg" alt="..." /></div>
+                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="lahan.jpg" alt="..." /></div>
                     </div>
                 </div>
             </header>
@@ -53,13 +53,13 @@
             <section class="py-5" id="features">
                 <div class="container px-5 my-5">
                     <div class="row gx-5">
-                        <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">SI LABU</h2><h6>Sistem Informasi Kesesuaian Lahan Tanaman Tebu</h6></div>
+                        <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">SI TAPE</h2><h6>Sistem Informasi Kesesuaian Lahan Tanaman Perkebunan</h6></div>
                         <div class="col-lg-8">
                             <div class="row gx-5 row-cols-1 row-cols-md-2">
                                 <div class="col mb-5 h-100">
                                     <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles"></i></div>
                                     <h2 class="h5">Lebih Akurat</h2>
-                                    <p class="mb-0">Dapat membantu petani dalam mengetahui lahan yang sesuai pada jenis varietas tanaman tebu dengan akurat</p>
+                                    <p class="mb-0">Dapat membantu petani dalam mengetahui lahan yang sesuai pada jenis varietas tanaman perkebunan dengan akurat</p>
                                 </div>
                                 <div class="col mb-5 h-100">
                                     <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
@@ -69,7 +69,7 @@
                                 <div class="col mb-5 mb-md-0 h-100">
                                     <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
                                     <h2 class="h5">Lebih Efisien</h2>
-                                    <p class="mb-0">Dapat menghemat waktu dalam menentukan lahan yang cocok untuk tanaman tebu</p>
+                                    <p class="mb-0">Dapat menghemat waktu dalam menentukan lahan yang cocok untuk tanaman perkebunan</p>
                                 </div>
                                 <div class="col h-100">
                                     <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
@@ -92,9 +92,9 @@
                                     </div>
                                 </div>
                             <div class="text-center">
-                                <div class="fs-4 mb-4 fst-bold">Sistem Pakar Analisis Kesesuaian Lahan Untuk Tanaman di desain untuk dapat membantu mempermudah petani dalam 
-                                mengetahui lahan yang sesuai pada jenis varietas tanaman tebu. Keluaran yang di rancang dari sistem pakar ini berupa perangkingan lahan tebu terbaik
-                                berdasarkan data data yang telah di inputkan oleh user.</div>
+                                <div class="fs-4 mb-4 fst-bold">Sistem Pakar Analisis Kesesuaian Lahan Untuk Tanaman Perkebunan di desain untuk dapat membantu mempermudah dalam 
+                                menghitung lahan pada jenis tanaman perkebunan. Keluaran yang di rancang dari sistem pakar ini berupa perangkingan lahan perkebunan terbaik
+                                berdasarkan data data yang telah di inputkan oleh user. Dengan meminimalisir teknik budidaya yang diterapkan</div>
                                 
                             </div>
                         </div>
@@ -152,7 +152,7 @@
                     </a>
                         <a class="link-light small" href="#!"></a>
                     </div>
-                    <div class="col-auto"><div class="small text-white-50">Copyright &copy; SILABU2022</div></div>
+                    <div class="col-auto"><div class="small text-white-50">Copyright &copy; SITAPE2022</div></div>
                 </div>
             </div>
         </footer>

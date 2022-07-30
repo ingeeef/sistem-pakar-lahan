@@ -41,18 +41,26 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="?">SILABU</a>
+                <a class="navbar-brand" href="?">SITAPE</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav" style="float: right;">
                     <li><a href="?m=klasifikasi"><span class="glyphicon glyphicon-th-large"></span> Klasifikasi</a></li>
                     <li><a href="?m=jenis"><span class="glyphicon glyphicon-leaf"></span> Jenis</a></li>
                     <?php if (isset($terhubung)) { ?>
+<<<<<<< Updated upstream
                     <li><a href="?m=kriteria"><span class="glyphicon glyphicon-th-large"></span> Kriteria</a></li>
                     <li><a href="?m=aturan"><span class="glyphicon glyphicon-th"></span> Data</a></li>
                     <li><a href="?m=alternatif"><span class="glyphicon glyphicon-user"></span> Data</a></li>
                     <li><a href="?m=detaildata"><span class="glyphicon glyphicon-th"></span> Data Aturan</a></li>
                     <li><a href="?m=hitung"><span class="glyphicon glyphicon-calendar"></span> Perhitungan</a></li>
+=======
+                        <li><a href="?m=kriteria"><span class="glyphicon glyphicon-th-large"></span> Kriteria</a></li>
+                        <li><a href="?m=aturan"><span class="glyphicon glyphicon-th"></span> Aturan</a></li>
+                        <li><a href="?m=alternatif"><span class="glyphicon glyphicon-user"></span> Masukan Data Lahan</a></li>
+                        <li><a href="?m=detaildata"><span class="glyphicon glyphicon-th-list"></span> Data Aturan</a></li>
+                        <li><a href="?m=hitung"><span class="glyphicon glyphicon-calendar"></span> Perhitungan</a></li>
+>>>>>>> Stashed changes
                     <?php } ?>
                     <!--           <li><a href="?m=password"><span class="glyphicon glyphicon-lock"></span> Password</a></li> -->
                     <?php if (isset($terhubung)) { ?>

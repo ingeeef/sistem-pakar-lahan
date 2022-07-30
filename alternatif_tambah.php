@@ -1,5 +1,5 @@
 <div class="page-header">
-    <h1>Tambah Alternatif</h1>
+    <h1>Masukan Data Lahan</h1>
 </div>
 <div class="row">
     <div class="col-sm-6">

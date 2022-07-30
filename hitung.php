@@ -16,7 +16,7 @@ $fuzzy->hitung_rank();
 ?>
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Nilai Alternatif</h3>
+        <h3 class="panel-title">Nama Lahan</h3>
     </div>
     <div class="table-responsive">
         <table class="table table-bordered table-striped table-hover">
@@ -84,9 +84,8 @@ $fuzzy->hitung_rank();
                 <th>Rank</th>
                 <th>Kode</th>
                 <th>Nama</th>
-                <th>Total</th>
+                <th>Total Nilai</th>
                 <th><?= $KRITERIA[$TARGET]->nama_kriteria ?></th>
-                <th>Aksi</th>
             </tr>
         </thead>
         <?php
@@ -100,8 +99,6 @@ $fuzzy->hitung_rank();
                 <td><?= $ALTERNATIF[$key] ?></td>
                 <td><?= round($total[$key], 3) ?></td>
                 <td><?= $fuzzy->get_klasifikasi($total[$key]) ?></td>
-                <td><a class="btn btn-xs btn-primary" href="?m=detail&ID=<?= $row->kode_alternatif ?>"><span class="glyphicon glyphicon-zoom-in"></span></a>
-                </td>
             </tr>
         <?php endforeach ?>
     </table>

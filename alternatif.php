@@ -24,7 +24,7 @@
             <tr>
                 <th>No</th>
                 <th>Kode</th>
-                <th>Nama</th>
+                <th>Nama Lahan</th>
                 <?php foreach ($KRITERIA as $key => $val) : if ($key == $TARGET) continue ?>
                     <th><?= $val->nama_kriteria ?></th>
                 <?php endforeach ?>

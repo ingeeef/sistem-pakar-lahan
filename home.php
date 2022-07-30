@@ -1,1 +1,1 @@
-<h1>Selamat datang di Sistem Informasi Kesesuaian Lahan untuk Tanaman Tebu menggunakan metode <i>Fuzzy Inference System Mamdani</i></h1>
+<h1>Selamat datang di Sistem Informasi Kesesuaian Lahan untuk Tanaman perkebunan menggunakan metode <i>Fuzzy Inference System Mamdani</i></h1>
