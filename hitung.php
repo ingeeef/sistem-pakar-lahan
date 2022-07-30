@@ -25,18 +25,18 @@ $fuzzy->hitung_rank();
                     <th>Kode</th>
                     <th>Nama</th>
                     <?php foreach ($KRITERIA as $key => $val) : if ($key == $TARGET) continue ?>
-                        <th><?= $val->nama_kriteria ?></th>
+                    <th><?= $val->nama_kriteria ?></th>
                     <?php endforeach ?>
                 </tr>
             </thead>
             <?php foreach ($fuzzy->get_data() as $key => $val) : ?>
-                <tr>
-                    <td><?= $key ?></td>
-                    <td><?= $ALTERNATIF[$key] ?></td>
-                    <?php foreach ($val as $k => $v) : ?>
-                        <td><?= $v ?></td>
-                    <?php endforeach ?>
-                </tr>
+            <tr>
+                <td><?= $key ?></td>
+                <td><?= $ALTERNATIF[$key] ?></td>
+                <?php foreach ($val as $k => $v) : ?>
+                <td><?= $v ?></td>
+                <?php endforeach ?>
+            </tr>
             <?php endforeach ?>
         </table>
     </div>
@@ -52,26 +52,26 @@ $fuzzy->hitung_rank();
                 <tr>
                     <th rowspan="3"></th>
                     <?php foreach ($KRITERIA as $key => $val) : if ($key == $TARGET) continue ?>
-                        <th colspan="<?= count($KRITERIA_HIMPUNAN[$key]) ?>" class="text-center"><?= $val->nama_kriteria ?></th>
+                    <th colspan="<?= count($KRITERIA_HIMPUNAN[$key]) ?>" class="text-center"><?= $val->nama_kriteria ?></th>
                     <?php endforeach ?>
                 </tr>
                 <tr>
                     <?php foreach ($KRITERIA as $key => $val) : if ($key == $TARGET) continue ?>
-                        <?php foreach ($KRITERIA_HIMPUNAN[$key] as $k => $v) : ?>
-                            <td><?= $HIMPUNAN[$k]->nama_himpunan ?><br />[<?= $HIMPUNAN[$k]->n1 ?> <?= $HIMPUNAN[$k]->n2 ?> <?= $HIMPUNAN[$k]->n3 ?> <?= $HIMPUNAN[$k]->n4 ?>]</td>
-                        <?php endforeach ?>
+                    <?php foreach ($KRITERIA_HIMPUNAN[$key] as $k => $v) : ?>
+                    <td><?= $HIMPUNAN[$k]->nama_himpunan ?><br />[<?= $HIMPUNAN[$k]->n1 ?> <?= $HIMPUNAN[$k]->n2 ?> <?= $HIMPUNAN[$k]->n3 ?> <?= $HIMPUNAN[$k]->n4 ?>]</td>
+                    <?php endforeach ?>
                     <?php endforeach ?>
                 </tr>
             </thead>
             <?php foreach ($fuzzy->get_nilai() as $key => $val) : ?>
-                <tr>
-                    <th><?= $key ?></th>
-                    <?php foreach ($val as $k => $v) : ?>
-                        <?php foreach ($v as $a => $b) : ?>
-                            <td><?= round($b, 3) ?></td>
-                        <?php endforeach ?>
-                    <?php endforeach ?>
-                </tr>
+            <tr>
+                <th><?= $key ?></th>
+                <?php foreach ($val as $k => $v) : ?>
+                <?php foreach ($v as $a => $b) : ?>
+                <td><?= round($b, 3) ?></td>
+                <?php endforeach ?>
+                <?php endforeach ?>
+            </tr>
             <?php endforeach ?>
         </table>
     </div>
@@ -93,13 +93,13 @@ $fuzzy->hitung_rank();
         $rank = $fuzzy->get_rank();
         $no = 1;
         foreach ($rank as $key => $val) : ?>
-            <tr>
-                <td><?= $val ?></td>
-                <td><?= $key ?></td>
-                <td><?= $ALTERNATIF[$key] ?></td>
-                <td><?= round($total[$key], 3) ?></td>
-                <td><?= $fuzzy->get_klasifikasi($total[$key]) ?></td>
-            </tr>
+        <tr>
+            <td><?= $val ?></td>
+            <td><?= $key ?></td>
+            <td><?= $ALTERNATIF[$key] ?></td>
+            <td><?= round($total[$key], 3) ?></td>
+            <td><?= $fuzzy->get_klasifikasi($total[$key]) ?></td>
+        </tr>
         <?php endforeach ?>
     </table>
 </div>
