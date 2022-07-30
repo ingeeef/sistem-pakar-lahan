@@ -94,6 +94,20 @@ function get_relasi()
     return $data;
 }
 
+function get_relasi_multi($database, $kode_alternatif)
+{
+    global $TARGET;
+    $dbs = new DB('localhost', 'root', '', $database);
+    $data = array();
+    $rows = $dbs->get_results("SELECT * 
+        FROM tb_rel_alternatif r INNER JOIN tb_kriteria k ON k.kode_kriteria=r.kode_kriteria  WHERE kode_alternatif = '$kode_alternatif' ORDER BY kode_alternatif, r.kode_kriteria");
+    foreach ($rows as $row) {
+        if ($row->kode_kriteria == $TARGET) continue;
+        $data[$row->kode_alternatif][$row->kode_kriteria] = $row->nilai;
+    }
+    return $data;
+}
+
 function get_himpunan_option($kode_kriteria, $selected)
 {
     global $KRITERIA_HIMPUNAN;

@@ -1,15 +1,3 @@
-<?php
-$fuzzy = new Fuzzy();
-$fuzzy->set_data(get_relasi());
-$fuzzy->hitung_nilai();
-$aturan = get_aturan();
-$fuzzy->set_rules($aturan);
-$fuzzy->hitung_miu();
-$fuzzy->hitung_z();
-$fuzzy->hitung_total();
-$fuzzy->hitung_rank();
-?>
-
 <div class="page-header">
     <h1>Klasifikasi Kesesuaian Lahan</h1>
 </div>
@@ -52,7 +40,6 @@ $fuzzy->hitung_rank();
             <td><?= ++$no ?></td>
             <td><?= $row->kode_alternatif ?></td>
             <td>
-
                 <?= $row->nama_alternatif ?>
             </td>
             <td>
@@ -70,29 +57,59 @@ $fuzzy->hitung_rank();
                 </table>
             </td>
             <td>
-            <table class="table table-bordered table-hover table-stripped">
+                <table class="table table-bordered table-hover table-stripped">
                     <tr>
                         <th>S1</th>
                         <th>S2</th>
                         <th>S3</th>
                         <th>N</th>
                     </tr>
-                </table>
-            </td>
-            <td>
-                <?php
-                    if ($koneksi) {
-                        $jenis = $koneksi->query("SELECT * FROM tb_jenis");
-                        while ($raw = $jenis->fetch_assoc()) {
+                    <?php
+                        if ($koneksi) {
+                            $jenis = $koneksi->query("SELECT * FROM tb_jenis");
+                            while ($raw = $jenis->fetch_assoc()) {
+                                $fuzzy = new Fuzzy();
+                                $fuzzy->set_data(get_relasi_multi($raw['database'], $row->kode_alternatif));
+                                $fuzzy->hitung_nilai();
+                                $aturan = get_aturan();
+                                $fuzzy->set_rules($aturan);
+                                $fuzzy->hitung_miu();
+                                $fuzzy->hitung_z();
+                                $fuzzy->hitung_total();
+                                $fuzzy->hitung_rank();
 
-                            $total = $fuzzy->get_total();
-                            $rank = $fuzzy->get_rank();
-                        }
-                    } ?>
-                <?php foreach ($rank as $key => $val) : ?>
-            <td><?= $fuzzy->get_klasifikasi($total[$key]) ?></td>
-            </td>
-            <?php endforeach ?>
+                                $total = $fuzzy->get_total();
+                                $rank = $fuzzy->get_rank();
+                                $no = 1;
+
+                                foreach ($rank as $key => $val) {
+                                    $result = $fuzzy->get_klasifikasi($total[$key]);
+                                    echo "<tr>";
+                                    if ($result == 'Sangat Sesuai (S1)') {
+                                        echo "<td>" . $raw['jenis'] . "</td>";
+                                    } else {
+                                        echo "<td></td>";
+                                    }
+                                    if ($result == 'Sesuai (S2)') {
+                                        echo "<td>" . $raw['jenis'] . "</td>";
+                                    } else {
+                                        echo "<td></td>";
+                                    }
+                                    if ($result == 'Sesuai Marginal (S3)') {
+                                        echo "<td>" . $raw['jenis'] . "</td>";
+                                    } else {
+                                        echo "<td></td>";
+                                    }
+                                    if ($result == 'Tidak Sesuai (N)') {
+                                        echo "<td>" . $raw['jenis'] . "</td>";
+                                    } else {
+                                        echo "<td></td>";
+                                    }
+                                    echo "</tr>";
+                                }
+                            }
+                        } ?>
+                </table>
             </td>
             <td>
                 <a class="btn btn-xs btn-warning" href="?m=alternatif_ubah&ID=<?= $row->kode_alternatif ?>"><span class="glyphicon glyphicon-edit"></span></a>
