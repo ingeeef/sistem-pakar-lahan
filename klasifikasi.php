@@ -70,8 +70,12 @@
                             while ($raw = $jenis->fetch_assoc()) {
                                 $fuzzy = new Fuzzy();
                                 $fuzzy->set_data(get_relasi_multi($raw['database'], $row->kode_alternatif));
-                                $fuzzy->hitung_nilai();
-                                $aturan = get_aturan();
+                                $himpunan = get_himpunan_multi($raw['database']);
+                                // $himpunan_ = get_himp();
+                                // var_dump($himpunan_);
+                                // var_dump($himpunan['kriteria']);
+                                $fuzzy->hitung_nilai_multi($himpunan['kriteria_himpunan'], $himpunan['kriteria']);
+                                $aturan = get_aturan_multi($raw['database']);
                                 $fuzzy->set_rules($aturan);
                                 $fuzzy->hitung_miu();
                                 $fuzzy->hitung_z();
@@ -80,11 +84,15 @@
 
                                 $total = $fuzzy->get_total();
                                 $rank = $fuzzy->get_rank();
+                                // var_dump($total);
+                                // echo "<br>";
+                                // var_dump($rank);
                                 $no = 1;
 
                                 foreach ($rank as $key => $val) {
                                     $result = $fuzzy->get_klasifikasi($total[$key]);
                                     echo "<tr>";
+                                    // echo "<td>" . $result . "</td>";
                                     if ($result == 'Sangat Sesuai (S1)') {
                                         echo "<td>" . $raw['jenis'] . "</td>";
                                     } else {

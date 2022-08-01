@@ -11,8 +11,7 @@ class Fuzzy
     protected $rank;
 
     function __construct()
-    {
-    }
+    { }
 
     function set_data($data)
     {
@@ -28,6 +27,48 @@ class Fuzzy
     {
         global $KRITERIA_HIMPUNAN, $KRITERIA;
 
+        $arr = array();
+        //echo '<pre>' . print_r($data, 1) . '</pre>';                
+        foreach ($this->data as $key => $val) {
+            foreach ($val as $k => $v) {
+                foreach ($KRITERIA_HIMPUNAN[$k] as $a => $b) {
+                    $ba = $KRITERIA[$k]->batas_atas;
+                    $bb = $KRITERIA[$k]->batas_bawah;
+
+                    $n1 = $b->n1;
+                    $n2 = $b->n2;
+                    $n3 = $b->n3;
+                    $n4 = $b->n4;
+
+                    if ($v <= $n1)
+                        $nilai = 0;
+                    else if ($v >= $n1 && $v <= $n2)
+                        $nilai = ($v - $n1) / ($n2 - $n1);
+                    else if ($v >= $n2 && $v <= $n3)
+                        $nilai = 1;
+                    else if ($v >= $n3 && $v <= $n4)
+                        $nilai = ($n4 - $v) / ($n4 - $n3);
+                    else
+                        $nilai = 0;
+
+                    if ($v >= $ba && ($n3 >= $ba || $n4 >= $ba))
+                        $nilai = 1;
+
+                    if ($v <= $bb && ($n1 <= $bb || $n2 <= $bb))
+                        $nilai = 1;
+
+                    $arr[$key][$k][$a] = $nilai;
+                }
+            }
+        }
+
+
+        $this->nilai = $arr;
+    }
+
+    function hitung_nilai_multi($KRITERIA_HIMPUNAN, $KRITERIA)
+    {
+        // global $KRITERIA_HIMPUNAN, $KRITERIA;
         $arr = array();
         //echo '<pre>' . print_r($data, 1) . '</pre>';                
         foreach ($this->data as $key => $val) {

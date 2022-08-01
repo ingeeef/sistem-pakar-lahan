@@ -81,6 +81,52 @@ function get_aturan()
     return $arr2;
 }
 
+
+// function get_himp()
+// {
+//     global $KRITERIA_HIMPUNAN;
+
+//     return $KRITERIA_HIMPUNAN;
+// }
+
+function get_aturan_multi($database)
+{
+    // global $db;
+    $dbs = new DB('localhost', 'root', '', $database);
+    $rows = $dbs->get_results("SELECT * FROM tb_aturan ORDER BY no_aturan, kode_kriteria");
+
+    $arr = array();
+    foreach ($rows as $row) {
+        $arr[$row->no_aturan][$row->kode_kriteria] = $row;
+    }
+
+    $arr2 = array();
+    foreach ($arr as $key => $val) {
+        $arr2[$key] = new Rule($val);
+    }
+    // echo '<pre>' . print_r($arr2, 1) . '</pre>';
+    return $arr2;
+}
+
+function get_himpunan_multi($database)
+{
+    $dbs = new DB('localhost', 'root', '', $database);
+    $rows = $dbs->get_results("SELECT * FROM tb_himpunan ORDER BY kode_himpunan");
+    $HIMPUNAN = array();
+    $KRITERIA_HIMPUNAN = array();
+    foreach ($rows as $row) {
+        $HIMPUNAN[$row->kode_himpunan] = $row;
+        $KRITERIA_HIMPUNAN[$row->kode_kriteria][$row->kode_himpunan] = $row;
+    }
+    $rows = $dbs->get_results("SELECT * FROM tb_kriteria ORDER BY kode_kriteria");
+    $KRITERIA = array();
+    foreach ($rows as $row) {
+        $KRITERIA[$row->kode_kriteria] = $row;
+    }
+
+    return ['himpunan' => $HIMPUNAN, 'kriteria_himpunan' => $KRITERIA_HIMPUNAN, 'kriteria' => $KRITERIA];
+}
+
 function get_relasi()
 {
     global $db, $TARGET;
@@ -97,7 +143,9 @@ function get_relasi()
 function get_relasi_multi($database, $kode_alternatif)
 {
     global $TARGET;
+
     $dbs = new DB('localhost', 'root', '', $database);
+
     $data = array();
     $rows = $dbs->get_results("SELECT * 
         FROM tb_rel_alternatif r INNER JOIN tb_kriteria k ON k.kode_kriteria=r.kode_kriteria  WHERE kode_alternatif = '$kode_alternatif' ORDER BY kode_alternatif, r.kode_kriteria");

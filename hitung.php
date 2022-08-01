@@ -5,6 +5,7 @@
 
 $fuzzy = new Fuzzy();
 $fuzzy->set_data(get_relasi());
+var_dump(get_relasi());
 $fuzzy->hitung_nilai();
 $aturan = get_aturan();
 $fuzzy->set_rules($aturan);
