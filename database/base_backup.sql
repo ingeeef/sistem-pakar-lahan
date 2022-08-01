@@ -5,13 +5,13 @@
  Source Server Type    : MySQL
  Source Server Version : 50733
  Source Host           : localhost:3306
- Source Schema         : bas
+ Source Schema         : testing_create
 
  Target Server Type    : MySQL
  Target Server Version : 50733
  File Encoding         : 65001
 
- Date: 01/08/2022 20:37:24
+ Date: 08/07/2022 09:31:15
 */
 
 SET NAMES utf8mb4;
@@ -27,11 +27,7 @@ CREATE TABLE `tb_alternatif`  (
   `total` double NULL DEFAULT NULL,
   `rank` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`kode_alternatif`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of tb_alternatif
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for tb_aturan
@@ -44,11 +40,7 @@ CREATE TABLE `tb_aturan`  (
   `operator` varchar(16) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `kode_himpunan` varchar(16) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_aturan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 720 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of tb_aturan
--- ----------------------------
+) ENGINE = InnoDB AUTO_INCREMENT = 720 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for tb_himpunan
@@ -58,17 +50,12 @@ CREATE TABLE `tb_himpunan`  (
   `kode_himpunan` varchar(16) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `kode_kriteria` varchar(16) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `nama_himpunan` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `penanda` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `n1` double NULL DEFAULT NULL,
   `n2` double NULL DEFAULT NULL,
   `n3` double NULL DEFAULT NULL,
   `n4` double NULL DEFAULT NULL,
   PRIMARY KEY (`kode_himpunan`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of tb_himpunan
--- ----------------------------
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for tb_kriteria
@@ -80,11 +67,7 @@ CREATE TABLE `tb_kriteria`  (
   `batas_bawah` double NULL DEFAULT NULL,
   `batas_atas` double NULL DEFAULT NULL,
   PRIMARY KEY (`kode_kriteria`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of tb_kriteria
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for tb_rel_alternatif
@@ -96,10 +79,6 @@ CREATE TABLE `tb_rel_alternatif`  (
   `kode_kriteria` varchar(16) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `nilai` double NULL DEFAULT NULL,
   PRIMARY KEY (`ID`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 239 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of tb_rel_alternatif
--- ----------------------------
+) ENGINE = MyISAM AUTO_INCREMENT = 239 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -39,7 +39,6 @@ function _session($key, $val = null)
 $mod = _get('m');
 $act = _get('act');
 
-
 $rows = $db->get_results("SELECT kode_alternatif, nama_alternatif FROM tb_alternatif ORDER BY kode_alternatif");
 foreach ($rows as $row) {
     $ALTERNATIF[$row->kode_alternatif] = $row->nama_alternatif;

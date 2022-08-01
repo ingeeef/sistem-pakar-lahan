@@ -88,6 +88,7 @@ elseif ($mod == 'alternatif_tambah') {
 elseif ($mod == 'kriteria_tambah') {
     $kode_kriteria = $_POST['kode_kriteria'];
     $nama_kriteria = $_POST['nama_kriteria'];
+    $penanda = $_POST['penanda'];
     $batas_bawah = $_POST['batas_bawah'];
     $batas_atas = $_POST['batas_atas'];
 
@@ -100,13 +101,14 @@ elseif ($mod == 'kriteria_tambah') {
     elseif ($batas_bawah >= $batas_atas)
         print_msg("Batas atas harus lebih besar dari batas bawah!");
     else {
-        $db->query("INSERT INTO tb_kriteria (kode_kriteria, nama_kriteria, batas_bawah, batas_atas) VALUES ('$kode_kriteria', '$nama_kriteria', '$batas_bawah', '$batas_atas')");
+        $db->query("INSERT INTO tb_kriteria (kode_kriteria, nama_kriteria, penanda, batas_bawah, batas_atas) VALUES ('$kode_kriteria','$nama_kriteria', '$penanda', '$batas_bawah', '$batas_atas')");
         $db->query("INSERT INTO tb_rel_alternatif (kode_alternatif, kode_kriteria) SELECT kode_alternatif, '$kode_kriteria' FROM tb_alternatif");
         redirect_js("admin.php?m=kriteria");
     }
 } else if ($mod == 'kriteria_ubah') {
     $nama_kriteria = $_POST['nama_kriteria'];
     $batas_bawah = $_POST['batas_bawah'];
+    $penanda = $_POST['penanda'];
     $batas_atas = $_POST['batas_atas'];
 
     if (!$nama_kriteria  || $batas_bawah == '' || $batas_atas == '')
@@ -117,7 +119,7 @@ elseif ($mod == 'kriteria_tambah') {
         print_msg("Batas atas harus lebih besar dari batas bawah!");
     else {
         $db->query("UPDATE tb_kriteria 
-            SET nama_kriteria='$nama_kriteria', batas_bawah='$batas_bawah', batas_atas='$batas_atas'
+            SET nama_kriteria='$nama_kriteria', penanda='$penanda', batas_bawah='$batas_bawah', batas_atas='$batas_atas'
             WHERE kode_kriteria='$_GET[ID]'");
         redirect_js("admin.php?m=kriteria");
     }
@@ -139,6 +141,7 @@ else if ($act == 'rel_alternatif_ubah') {
     if ($_POST['tambah_himpunan']) {
         $kode_himpunan = $_POST['kode_himpunan'];
         $nama_himpunan = $_POST['nama_himpunan'];
+        $penanda = $_POST['penanda'];
         $n1 = $_POST['n1'];
         $n2 = $_POST['n2'];
         $n3 = $_POST['n3'];
@@ -147,14 +150,15 @@ else if ($act == 'rel_alternatif_ubah') {
         if ($kode_himpunan == '' || $nama_himpunan == '' || $n1 == '' || $n2 == '' || $n3 == '' || $n4 == '') {
             print_msg("Semua Field harus diisi!");
         } else {
-            $db->query("INSERT INTO tb_himpunan (kode_himpunan, kode_kriteria, nama_himpunan, n1, n2, n3, n4)
-                VALUES ('$kode_himpunan', '$_GET[ID]', '$nama_himpunan', '$n1', '$n2', '$n3', '$n4' )");
+            $db->query("INSERT INTO tb_himpunan (kode_himpunan, kode_kriteria, nama_himpunan, penanda, n1, n2, n3, n4)
+                VALUES ('$kode_himpunan', '$_GET[ID]', '$nama_himpunan', '$penanda', '$n1', '$n2', '$n3', '$n4' )");
             print_msg('Himpunan berhasil ditambah!', 'success');
         }
     } else if ($_POST['simpan_himpunan']) {
         $data = $_POST['data'];
         foreach ($data as $key => $val) {
-            $db->query("UPDATE tb_himpunan SET nama_himpunan='$val[nama_himpunan]', n1='$val[n1]', n2='$val[n2]', n3='$val[n3]', n4='$val[n4]' WHERE kode_himpunan='$key'");
+            // var_dump($val);
+            $db->query("UPDATE tb_himpunan SET nama_himpunan='$val[nama_himpunan]', penanda='$val[penanda]', n1='$val[n1]', n2='$val[n2]', n3='$val[n3]', n4='$val[n4]' WHERE kode_himpunan='$key'");
         }
         print_msg('Himpunan berhasil disimpan!', 'success');
     }
