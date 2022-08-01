@@ -24,7 +24,7 @@
             <tr>
                 <th>No</th>
                 <th>Kode</th>
-                <th>Nama</th>
+                <th>Nama Lahan</th>
                 <th>Data Lahan</th>
                 <th>Kelas Kesesuaian</th>
                 <th>Aksi</th>
@@ -59,10 +59,10 @@
             <td>
                 <table class="table table-bordered table-hover table-stripped">
                     <tr>
-                        <th>S1</th>
-                        <th>S2</th>
-                        <th>S3</th>
-                        <th>N</th>
+                        <th>Sangat Sesuai (S1)</th>
+                        <th>Sesuai (S2)</th>
+                        <th>Sesuai Marginal (S3)</th>
+                        <th>Tidak Sesuai(N)</th>
                     </tr>
                     <?php
                         if ($koneksi) {
@@ -112,7 +112,6 @@
                 </table>
             </td>
             <td>
-                <a class="btn btn-xs btn-warning" href="?m=alternatif_ubah&ID=<?= $row->kode_alternatif ?>"><span class="glyphicon glyphicon-edit"></span></a>
                 <a class="btn btn-xs btn-danger" href="?m=klasifikasi_tambah&act=hapus&ID=<?= $row->kode_alternatif ?>" onclick="return confirm('Hapus data?')"><span class="glyphicon glyphicon-trash"></span></a>
             </td>
         </tr>

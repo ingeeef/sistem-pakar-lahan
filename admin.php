@@ -45,17 +45,17 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav" style="float: right;">
-                    <li><a href="?m=klasifikasi"><span class="glyphicon glyphicon-th-large"></span> Klasifikasi</a></li>
+                    <li><a href="?m=klasifikasi"><span class="glyphicon glyphicon-align-justify"></span> Klasifikasi</a></li>
                     <li><a href="?m=jenis"><span class="glyphicon glyphicon-leaf"></span> Jenis</a></li>
                     <?php if (isset($terhubung)) { ?>
                     <li><a href="?m=kriteria"><span class="glyphicon glyphicon-th-large"></span> Kriteria</a></li>
-                    <li><a href="?m=aturan"><span class="glyphicon glyphicon-th"></span> Data</a></li>
-                    <li><a href="?m=alternatif"><span class="glyphicon glyphicon-user"></span> Data</a></li>
+                    <li><a href="?m=aturan"><span class="glyphicon glyphicon-th-list"></span> Aturan</a></li>
+              <!--   <li><a href="?m=alternatif"><span class="glyphicon glyphicon-user"></span> Data</a></li> -->
                     <li><a href="?m=detaildata"><span class="glyphicon glyphicon-th"></span> Data Aturan</a></li>
                     <li><a href="?m=hitung"><span class="glyphicon glyphicon-calendar"></span> Perhitungan</a></li>
 
                     <?php } ?>
-                    <!--           <li><a href="?m=password"><span class="glyphicon glyphicon-lock"></span> Password</a></li> -->
+              <!--   <li><a href="?m=password"><span class="glyphicon glyphicon-lock"></span> Password</a></li> -->
                     <?php if (isset($terhubung)) { ?>
                     <li><a href="aksi.php?act=logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                     <?php } else { ?>
