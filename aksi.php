@@ -101,7 +101,7 @@ elseif ($mod == 'kriteria_tambah') {
     elseif ($batas_bawah >= $batas_atas)
         print_msg("Batas atas harus lebih besar dari batas bawah!");
     else {
-        $db->query("INSERT INTO tb_kriteria (kode_kriteria, nama_kriteria, penanda, batas_bawah, batas_atas) VALUES ('$kode_kriteria','$nama_kriteria', '$penanda', '$batas_bawah', '$batas_atas')");
+        $db->query("INSERT INTO tb_kriteria (kode_kriteria, nama_kriteria, batas_bawah, batas_atas) VALUES ('$kode_kriteria','$nama_kriteria', '$batas_bawah', '$batas_atas')");
         $db->query("INSERT INTO tb_rel_alternatif (kode_alternatif, kode_kriteria) SELECT kode_alternatif, '$kode_kriteria' FROM tb_alternatif");
         redirect_js("admin.php?m=kriteria");
     }
