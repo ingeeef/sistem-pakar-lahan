@@ -49,7 +49,7 @@ if (isset($_POST['create_jenis'])) {
     $sql = "INSERT INTO tb_jenis values (NULL,'$jenis','$database',0)";
     if ($koneksi->query($sql)) {
         $link = mysqli_connect("localhost", "root", "", $database);
-        $link->multi_query(file_get_contents('database/base.sql'));
+        $link->multi_query(file_get_contents('database/base_backup.sql'));
         header('location:admin.php?m=jenis');
     } else {
         echo "Error: " . $sql . "<br>" . $koneksi->error;
