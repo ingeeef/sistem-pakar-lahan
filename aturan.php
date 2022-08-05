@@ -61,11 +61,6 @@ $aturan = get_aturan();
 		</div>
 	</div>
 </form>
-<form action="generate.php" method="post">
-	<input type="hidden" name="generate">
-
-	<button class="btn btn-warning">Generate</button>
-</form>
 <div class="panel panel-primary">
 	<div class="panel-heading">
 		<h3 class="panel-title">Aturan</h3>

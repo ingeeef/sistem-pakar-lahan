@@ -31,9 +31,6 @@ $row = $db->get_row("SELECT * FROM tb_kriteria WHERE kode_kriteria='$_GET[ID]'")
                         <input class="form-control input-sm aw" type="text" name="nama_himpunan" value="<?= set_value('nama_himpunan') ?>" placeholder="Nama himpunan" />
                     </div>
                     <div class="form-group">
-                        <input class="form-control input-sm aw" type="text" name="penanda" value="<?= set_value('penanda') ?>" placeholder="Penanda" size="6" />
-                    </div>
-                    <div class="form-group">
                         <input class="form-control input-sm aw" type="text" name="n1" value="<?= set_value('n1') ?>" placeholder="Batas 1" size="6" />
                     </div>
                     <div class="form-group">
@@ -56,7 +53,6 @@ $row = $db->get_row("SELECT * FROM tb_kriteria WHERE kode_kriteria='$_GET[ID]'")
                         <tr>
                             <th>Kode</th>
                             <th>Nama</th>
-                            <th>Penanda</th>
                             <th>Batas1</th>
                             <th>Batas2</th>
                             <th>Batas3</th>
@@ -70,7 +66,6 @@ $row = $db->get_row("SELECT * FROM tb_kriteria WHERE kode_kriteria='$_GET[ID]'")
                     <tr>
                         <td><?= $row->kode_himpunan ?></td>
                         <td><input class="form-control input-sm aw" name="data[<?= $row->kode_himpunan ?>][nama_himpunan]" value="<?= $row->nama_himpunan ?>" /></td>
-                        <td><input class="form-control input-sm aw" name="data[<?= $row->kode_himpunan ?>][penanda]" value="<?= $row->penanda ?>" size="4" /></td>
                         <td><input class="form-control input-sm aw" name="data[<?= $row->kode_himpunan ?>][n1]" value="<?= $row->n1 ?>" size="4" /></td>
                         <td><input class="form-control input-sm aw" name="data[<?= $row->kode_himpunan ?>][n2]" value="<?= $row->n2 ?>" size="4" /></td>
                         <td><input class="form-control input-sm aw" name="data[<?= $row->kode_himpunan ?>][n3]" value="<?= $row->n3 ?>" size="4" /></td>

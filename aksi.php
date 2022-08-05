@@ -37,7 +37,6 @@ if ($mod == 'login') {
     }
     header("location:index.php?m=login");
 }
-
 /** LAHAN **/
 elseif ($mod == 'alternatif_tambah') {
     $kode_alternatif = $_POST['kode_alternatif'];

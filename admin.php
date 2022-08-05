@@ -17,6 +17,11 @@
 <body>
     <?php
     session_start();
+    // cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['level']==""){
+		header("location:login.php?pesan=gagal");
+	}
+ 
     // var_dump($_SESSION['jenis']);
     // die;
     $mod = isset($_GET['m']) ? $_GET['m'] : '';
