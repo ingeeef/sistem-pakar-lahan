@@ -1,5 +1,5 @@
 <div class="page-header">
-    <h1>Klasifikasi Kesesuaian Lahan</h1>
+    <h1>Kesesuaian Lahan</h1>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading">

@@ -1,5 +1,5 @@
 <div class="page-header">
-    <h1>Tambah Alternatif</h1>
+    <h1>Masukan Data Lahan</h1>
 </div>
 <div class="row">
     <div class="col-sm-6">
@@ -14,10 +14,10 @@
                 <input class="form-control" type="text" name="nama_alternatif" value="<?= set_value('nama_alternatif') ?>" />
             </div>
             <?php foreach ($KRITERIA as $key => $val) : ?>
-            <div class="form-group <?= $key == $TARGET ? 'hidden' : '' ?>">
-                <label><?= $val->nama_kriteria ?> <span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="nilai[<?= $key ?>]" value="<?= isset($_POST['nilai'][$key]) ? $_POST['nilai'][$key] : '' ?>" />
-            </div>
+                <div class="form-group <?= $key == $TARGET ? 'hidden' : '' ?>">
+                    <label><?= $val->nama_kriteria ?> <span class="text-danger">*</span></label>
+                    <input class="form-control input_<?= $key ?>" type="text" name="nilai[<?= $key ?>]" value="<?= isset($_POST['nilai'][$key]) ? $_POST['nilai'][$key] : '' ?>" />
+                </div>
             <?php endforeach ?>
             <div class="form-group">
                 <button class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Simpan</button>
@@ -26,6 +26,44 @@
         </form>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('.input_C01, .input_C03').on("keypress keyup", function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+
+            $('.alert1').remove()
+
+            if ($(this).val() > 5000 && $(this).hasClass('input_C01')) {
+                $(this).before(`
+                    <code class="alert1">Curah Hujan Tidak Boleh Lebih Dari 5000 mm/tahun</code> 
+                `)
+            }
+
+            if ($(this).val() > 200 && $(this).hasClass('input_C03')) {
+                $(this).before(`
+                    <code class="alert1">Kedalaman Tanah Tidak Boleh Lebih Dari 200m</code> 
+                `)
+            }
+        });
+
+        $('.input_C02').on("keypress keyup", function(event) {
+            if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+                event.preventDefault();
+            }
+
+            num = $(this).val()
+
+            $('.alert2').remove()
+
+            if (num > 14) {
+                $(this).before(`
+                    <code class="alert2">pH Tanah Tidak Boleh Lebih Dari 14</code> 
+                `)
+            }
+        });
+    });
+</script>
 
 <?php
 if (isset($_POST['tambah'])) {
