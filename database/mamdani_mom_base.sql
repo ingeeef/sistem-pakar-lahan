@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 01, 2022 at 02:50 AM
+-- Generation Time: Sep 06, 2022 at 02:01 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -31,16 +31,17 @@ SET time_zone = "+00:00";
 CREATE TABLE `tb_admin` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `password` varchar(50) NOT NULL,
+  `level` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `tb_admin`
 --
 
-INSERT INTO `tb_admin` (`id`, `username`, `password`) VALUES
-(1, 'admin', 'admin'),
-(2, 'user', 'user');
+INSERT INTO `tb_admin` (`id`, `username`, `password`, `level`) VALUES
+(1, 'admin', 'admin', 'admin'),
+(2, 'user', 'user', 'user');
 
 -- --------------------------------------------------------
 
@@ -60,15 +61,15 @@ CREATE TABLE `tb_jenis` (
 --
 
 INSERT INTO `tb_jenis` (`id`, `jenis`, `database`, `status`) VALUES
-(34, 'Kopi Robusta', 'mamdani_mom_KopiRobusta', 1),
-(35, 'Kelapa Sawit', 'mamdani_mom_KelapaSawit', 0),
-(37, 'Kopi Arabika', 'mamdani_mom_KopiArabika', 0),
-(38, 'Karet', 'mamdani_mom_Karet', 0),
-(39, 'Kakao', 'mamdani_mom_Kakao', 0),
-(40, 'Cengkeh', 'mamdani_mom_Cengkeh', 0),
-(41, 'Pala', 'mamdani_mom_Pala', 0),
-(42, 'Kayu Manis', 'mamdani_mom_KayuManis', 0),
-(43, 'Teh', 'mamdani_mom_Teh', 0);
+(52, 'Kopi Arabika', 'mamdani_mom_kopiarabika', 1),
+(53, 'Cengkeh', 'mamdani_mom_cengkeh', 0),
+(54, 'Kelapa Sawit', 'mamdani_mom_kelapasawit', 0),
+(55, 'Karet', 'mamdani_mom_karet', 0),
+(56, 'Kakao', 'mamdani_mom_kakao', 0),
+(57, 'Kayu Manis', 'mamdani_mom_kayumanis', 0),
+(58, 'Teh', 'mamdani_mom_teh', 0),
+(64, 'pala', 'mamdani_mom_pala', 0),
+(66, 'Kopi Robusta', 'mamdani_mom_kopirobusta', 0);
 
 --
 -- Indexes for dumped tables
@@ -100,7 +101,7 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT for table `tb_jenis`
 --
 ALTER TABLE `tb_jenis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

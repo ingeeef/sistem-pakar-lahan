@@ -1,4 +1,5 @@
 <?php
+// $koneksi = mysqli_connect("localhost", "root", "@Ingefatul100", "mamdani_mom_base");
 $koneksi = mysqli_connect("localhost", "root", "", "mamdani_mom_base");
 
 // Check connection
